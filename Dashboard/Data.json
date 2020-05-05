@@ -1,0 +1,2235 @@
+{
+    "version": 27,
+    "headerPanel": {
+        "type": "headerPanel",
+        "size": "large",
+        "title": "Internal GIS Statistics - shows data in 5 minute intervals",
+        "subtitle": "",
+        "titleTextColor": "#0084a8",
+        "showMargin": true,
+        "backgroundImageSizing": "fit-height",
+        "normalBackgroundImagePlacement": "left",
+        "horizontalBackgroundImagePlacement": "top",
+        "showSignOutMenu": false,
+        "menuLinks": [],
+        "selectors": []
+    },
+    "widgets": [
+        {
+            "type": "indicatorWidget",
+            "defaultSettings": {
+                "textColor": "#858585",
+                "caption": "<h3 style=\"text-align:center\"><span style=\"color:#858585\">Services Requested</span></h3>\n",
+                "topSection": {
+                    "fontSize": 80,
+                    "textInfo": {
+                        "text": ""
+                    }
+                },
+                "middleSection": {
+                    "fontSize": 160,
+                    "textInfo": {
+                        "text": "{element/value}"
+                    }
+                },
+                "bottomSection": {
+                    "fontSize": 80,
+                    "textInfo": {}
+                }
+            },
+            "comparison": "none",
+            "valueField": "ServicesRequested",
+            "valueFormat": {
+                "name": "value",
+                "type": "decimal",
+                "prefix": false
+            },
+            "percentageFormat": {
+                "name": "percentage",
+                "type": "decimal",
+                "prefix": false
+            },
+            "ratioFormat": {
+                "name": "ratio",
+                "type": "decimal",
+                "prefix": false
+            },
+            "valueType": "feature",
+            "noValueVerticalAlignment": "middle",
+            "showCaptionWhenNoValue": true,
+            "showDescriptionWhenNoValue": true,
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 0,
+                        "table": false
+                    },
+                    "filter": {
+                        "type": "filterGroup",
+                        "condition": "OR",
+                        "rules": [
+                            {
+                                "type": "filterGroup",
+                                "condition": "AND",
+                                "rules": [
+                                    {
+                                        "type": "filterRule",
+                                        "field": {
+                                            "name": "StatDateUTC",
+                                            "type": "esriFieldTypeDate"
+                                        },
+                                        "operator": "is_within_last",
+                                        "constraint": {
+                                            "type": "relativeDate",
+                                            "unit": "m",
+                                            "value": "7"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [],
+                    "orderByFields": [
+                        "StatDateUTC desc"
+                    ],
+                    "statisticDefinitions": [],
+                    "maxFeatures": 1,
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": false,
+                    "name": "main"
+                }
+            ],
+            "id": "887378a3-22e3-48f4-af11-ca81b5ee67ab",
+            "name": "Services Requested Indicator",
+            "showLastUpdate": false,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": false
+        },
+        {
+            "type": "serialChartWidget",
+            "category": {
+                "labelOverrides": [],
+                "byCategoryColors": false,
+                "labelsPlacement": "default",
+                "labelRotation": 0,
+                "fieldName": "StatDateUTC",
+                "nullLabel": "Null",
+                "blankLabel": "Blank",
+                "defaultColor": "#d6d6d6",
+                "nullColor": "#d6d6d6",
+                "blankColor": "#d6d6d6"
+            },
+            "valueFormat": {
+                "name": "value",
+                "type": "decimal",
+                "prefix": true,
+                "pattern": "#,###.#"
+            },
+            "labelFormat": {
+                "name": "label",
+                "type": "decimal",
+                "prefix": true,
+                "pattern": "#,###.#"
+            },
+            "datePeriodPatterns": [
+                {
+                    "period": "ss",
+                    "pattern": "HH:mm:ss"
+                },
+                {
+                    "period": "mm",
+                    "pattern": "HH:mm"
+                },
+                {
+                    "period": "hh",
+                    "pattern": "HH:mm"
+                },
+                {
+                    "period": "DD",
+                    "pattern": "MMM d"
+                },
+                {
+                    "period": "MM",
+                    "pattern": "MMM"
+                },
+                {
+                    "period": "YYYY",
+                    "pattern": "yyyy"
+                }
+            ],
+            "chartScrollbar": {
+                "enabled": true,
+                "dragIcon": "dragIconRoundSmall",
+                "dragIconHeight": 20,
+                "dragIconWidth": 20,
+                "scrollbarHeight": 15
+            },
+            "categoryAxis": {
+                "title": "",
+                "titleRotation": 0,
+                "gridPosition": "start",
+                "gridThickness": 1,
+                "gridAlpha": 0.15,
+                "axisThickness": 1,
+                "axisAlpha": 0.5,
+                "labelsEnabled": true,
+                "parseDates": true,
+                "minPeriod": "mm"
+            },
+            "valueAxis": {
+                "title": "Services Requested",
+                "titleRotation": 270,
+                "gridThickness": 1,
+                "gridAlpha": 0.15,
+                "axisThickness": 1,
+                "axisAlpha": 0.5,
+                "labelsEnabled": true,
+                "stackType": "none",
+                "integersOnly": false,
+                "logarithmic": false
+            },
+            "legend": {
+                "enabled": false,
+                "position": "bottom",
+                "markerSize": 15,
+                "markerType": "circle",
+                "align": "center",
+                "labelWidth": 100,
+                "valueWidth": 0
+            },
+            "graphs": [
+                {
+                    "valueField": "value",
+                    "lineColor": "#858585",
+                    "lineColorField": "_lineColor_",
+                    "fillColorsField": "_fillColor_",
+                    "type": "column",
+                    "fillAlphas": 1,
+                    "lineAlpha": 1,
+                    "lineThickness": 1,
+                    "bullet": "none",
+                    "bulletAlpha": 1,
+                    "bulletBorderAlpha": 0,
+                    "bulletBorderThickness": 2,
+                    "showBalloon": true,
+                    "bulletSize": 8
+                }
+            ],
+            "guides": [],
+            "splitBy": {
+                "defaultColor": "#d6d6d6",
+                "seriesProperties": []
+            },
+            "rotate": false,
+            "commonGraphProperties": {
+                "lineColorField": "_lineColor_",
+                "fillColorsField": "_fillColor_",
+                "type": "column",
+                "fillAlphas": 1,
+                "lineAlpha": 1,
+                "lineThickness": 1,
+                "bullet": "none",
+                "bulletAlpha": 1,
+                "bulletBorderAlpha": 0,
+                "bulletBorderThickness": 2,
+                "showBalloon": true,
+                "bulletSize": 8
+            },
+            "selectionMode": "multi",
+            "categoryType": "groupByValues",
+            "textColor": "#707070",
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 0,
+                        "table": false
+                    },
+                    "filter": {
+                        "type": "filterGroup",
+                        "condition": "OR",
+                        "rules": [
+                            {
+                                "type": "filterGroup",
+                                "condition": "AND",
+                                "rules": [
+                                    {
+                                        "type": "filterRule",
+                                        "field": {
+                                            "name": "StatDateUTC",
+                                            "type": "esriFieldTypeDate"
+                                        },
+                                        "operator": "is_within_last",
+                                        "constraint": {
+                                            "type": "relativeDate",
+                                            "unit": "h",
+                                            "value": "12"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [
+                        "StatDateUTC"
+                    ],
+                    "orderByFields": [
+                        "StatDateUTC asc"
+                    ],
+                    "statisticDefinitions": [
+                        {
+                            "onStatisticField": "ServicesRequested",
+                            "outStatisticFieldName": "value",
+                            "statisticType": "sum"
+                        }
+                    ],
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": true,
+                    "name": "main"
+                }
+            ],
+            "id": "a9d67536-4662-4c08-af58-428dc27d0cb7",
+            "name": "Services Requested Chart",
+            "caption": "",
+            "showLastUpdate": true,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": true
+        },
+        {
+            "type": "serialChartWidget",
+            "category": {
+                "labelOverrides": [],
+                "byCategoryColors": false,
+                "labelsPlacement": "default",
+                "labelRotation": 0,
+                "fieldName": "StatDateUTC",
+                "nullLabel": "Null",
+                "blankLabel": "Blank",
+                "defaultColor": "#d6d6d6",
+                "nullColor": "#d6d6d6",
+                "blankColor": "#d6d6d6"
+            },
+            "valueFormat": {
+                "name": "value",
+                "type": "decimal",
+                "prefix": true,
+                "pattern": "#,###.#"
+            },
+            "labelFormat": {
+                "name": "label",
+                "type": "decimal",
+                "prefix": true,
+                "pattern": "#,###.#"
+            },
+            "datePeriodPatterns": [
+                {
+                    "period": "ss",
+                    "pattern": "HH:mm:ss"
+                },
+                {
+                    "period": "mm",
+                    "pattern": "HH:mm"
+                },
+                {
+                    "period": "hh",
+                    "pattern": "HH:mm"
+                },
+                {
+                    "period": "DD",
+                    "pattern": "MMM d"
+                },
+                {
+                    "period": "MM",
+                    "pattern": "MMM"
+                },
+                {
+                    "period": "YYYY",
+                    "pattern": "yyyy"
+                }
+            ],
+            "chartScrollbar": {
+                "enabled": true,
+                "dragIcon": "dragIconRoundSmall",
+                "dragIconHeight": 20,
+                "dragIconWidth": 20,
+                "scrollbarHeight": 15
+            },
+            "categoryAxis": {
+                "title": "",
+                "titleRotation": 0,
+                "gridPosition": "start",
+                "gridThickness": 1,
+                "gridAlpha": 0.15,
+                "axisThickness": 1,
+                "axisAlpha": 0.5,
+                "labelsEnabled": true,
+                "parseDates": true,
+                "minPeriod": "mm"
+            },
+            "valueAxis": {
+                "title": "Layers Drawn",
+                "titleRotation": 270,
+                "gridThickness": 1,
+                "gridAlpha": 0.15,
+                "axisThickness": 1,
+                "axisAlpha": 0.5,
+                "labelsEnabled": true,
+                "stackType": "none",
+                "integersOnly": false,
+                "logarithmic": false
+            },
+            "legend": {
+                "enabled": false,
+                "position": "bottom",
+                "markerSize": 15,
+                "markerType": "circle",
+                "align": "center",
+                "labelWidth": 100,
+                "valueWidth": 0
+            },
+            "graphs": [
+                {
+                    "valueField": "value",
+                    "lineColor": "#00a9e6",
+                    "lineColorField": "_lineColor_",
+                    "fillColorsField": "_fillColor_",
+                    "type": "column",
+                    "fillAlphas": 1,
+                    "lineAlpha": 1,
+                    "lineThickness": 1,
+                    "bullet": "none",
+                    "bulletAlpha": 1,
+                    "bulletBorderAlpha": 0,
+                    "bulletBorderThickness": 2,
+                    "showBalloon": true,
+                    "bulletSize": 8
+                }
+            ],
+            "guides": [],
+            "splitBy": {
+                "defaultColor": "#d6d6d6",
+                "seriesProperties": []
+            },
+            "rotate": false,
+            "commonGraphProperties": {
+                "lineColorField": "_lineColor_",
+                "fillColorsField": "_fillColor_",
+                "type": "column",
+                "fillAlphas": 1,
+                "lineAlpha": 1,
+                "lineThickness": 1,
+                "bullet": "none",
+                "bulletAlpha": 1,
+                "bulletBorderAlpha": 0,
+                "bulletBorderThickness": 2,
+                "showBalloon": true,
+                "bulletSize": 8
+            },
+            "selectionMode": "multi",
+            "categoryType": "groupByValues",
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 0,
+                        "table": false
+                    },
+                    "filter": {
+                        "type": "filterGroup",
+                        "condition": "OR",
+                        "rules": [
+                            {
+                                "type": "filterGroup",
+                                "condition": "AND",
+                                "rules": [
+                                    {
+                                        "type": "filterRule",
+                                        "field": {
+                                            "name": "StatDateUTC",
+                                            "type": "esriFieldTypeDate"
+                                        },
+                                        "operator": "is_within_last",
+                                        "constraint": {
+                                            "type": "relativeDate",
+                                            "unit": "h",
+                                            "value": "12"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [
+                        "StatDateUTC"
+                    ],
+                    "orderByFields": [
+                        "StatDateUTC asc"
+                    ],
+                    "statisticDefinitions": [
+                        {
+                            "onStatisticField": "LayersDrawn",
+                            "outStatisticFieldName": "value",
+                            "statisticType": "sum"
+                        }
+                    ],
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": true,
+                    "name": "main"
+                }
+            ],
+            "id": "66308114-0389-4bbc-80cd-2e8f0584c31f",
+            "name": "Layers Drawn Chart",
+            "caption": "",
+            "showLastUpdate": true,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": true
+        },
+        {
+            "type": "indicatorWidget",
+            "defaultSettings": {
+                "textColor": "#00a9e6",
+                "caption": "<h3 style=\"text-align:center\"><span style=\"color:#00a9e6\">Layers Drawn</span></h3>\n",
+                "topSection": {
+                    "fontSize": 80,
+                    "textInfo": {}
+                },
+                "middleSection": {
+                    "fontSize": 160,
+                    "textInfo": {
+                        "text": "{element/value}"
+                    }
+                },
+                "bottomSection": {
+                    "fontSize": 80,
+                    "textInfo": {}
+                }
+            },
+            "comparison": "none",
+            "valueField": "LayersDrawn",
+            "valueFormat": {
+                "name": "value",
+                "type": "decimal",
+                "prefix": false
+            },
+            "percentageFormat": {
+                "name": "percentage",
+                "type": "decimal",
+                "prefix": false
+            },
+            "ratioFormat": {
+                "name": "ratio",
+                "type": "decimal",
+                "prefix": false
+            },
+            "valueType": "feature",
+            "noValueVerticalAlignment": "middle",
+            "showCaptionWhenNoValue": true,
+            "showDescriptionWhenNoValue": true,
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 0,
+                        "table": false
+                    },
+                    "filter": {
+                        "type": "filterGroup",
+                        "condition": "OR",
+                        "rules": [
+                            {
+                                "type": "filterGroup",
+                                "condition": "AND",
+                                "rules": [
+                                    {
+                                        "type": "filterRule",
+                                        "field": {
+                                            "name": "StatDateUTC",
+                                            "type": "esriFieldTypeDate"
+                                        },
+                                        "operator": "is_within_last",
+                                        "constraint": {
+                                            "type": "relativeDate",
+                                            "unit": "m",
+                                            "value": "7"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [],
+                    "orderByFields": [
+                        "StatDateUTC desc"
+                    ],
+                    "statisticDefinitions": [],
+                    "maxFeatures": 1,
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": false,
+                    "name": "main"
+                }
+            ],
+            "id": "5b899b08-5c22-4379-86f8-3f40990b6c2d",
+            "name": "Layers Drawn indicator",
+            "showLastUpdate": false,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": false
+        },
+        {
+            "type": "indicatorWidget",
+            "defaultSettings": {
+                "textColor": "#ff0000",
+                "caption": "<h3 style=\"text-align:center\"><span style=\"color:#ff0000\">Errors</span></h3>\n",
+                "topSection": {
+                    "fontSize": 80,
+                    "textInfo": {}
+                },
+                "middleSection": {
+                    "fontSize": 160,
+                    "textInfo": {
+                        "text": "{element/value}"
+                    }
+                },
+                "bottomSection": {
+                    "fontSize": 80,
+                    "textInfo": {}
+                }
+            },
+            "comparison": "none",
+            "valueField": "Errors",
+            "valueFormat": {
+                "name": "value",
+                "type": "decimal",
+                "prefix": false
+            },
+            "percentageFormat": {
+                "name": "percentage",
+                "type": "decimal",
+                "prefix": false
+            },
+            "ratioFormat": {
+                "name": "ratio",
+                "type": "decimal",
+                "prefix": false
+            },
+            "valueType": "feature",
+            "noValueVerticalAlignment": "middle",
+            "showCaptionWhenNoValue": true,
+            "showDescriptionWhenNoValue": true,
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 0,
+                        "table": false
+                    },
+                    "filter": {
+                        "type": "filterGroup",
+                        "condition": "OR",
+                        "rules": [
+                            {
+                                "type": "filterGroup",
+                                "condition": "AND",
+                                "rules": [
+                                    {
+                                        "type": "filterRule",
+                                        "field": {
+                                            "name": "StatDateUTC",
+                                            "type": "esriFieldTypeDate"
+                                        },
+                                        "operator": "is_within_last",
+                                        "constraint": {
+                                            "type": "relativeDate",
+                                            "unit": "m",
+                                            "value": "7"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [],
+                    "orderByFields": [
+                        "StatDateUTC desc"
+                    ],
+                    "statisticDefinitions": [],
+                    "maxFeatures": 1,
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": false,
+                    "name": "main"
+                }
+            ],
+            "id": "59a29359-50a2-4d16-a782-f1be695ef602",
+            "name": "Errors Indicator",
+            "showLastUpdate": false,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": false
+        },
+        {
+            "type": "serialChartWidget",
+            "category": {
+                "labelOverrides": [],
+                "byCategoryColors": false,
+                "labelsPlacement": "default",
+                "labelRotation": 0,
+                "fieldName": "StatDateUTC",
+                "nullLabel": "Null",
+                "blankLabel": "Blank",
+                "defaultColor": "#d6d6d6",
+                "nullColor": "#d6d6d6",
+                "blankColor": "#d6d6d6"
+            },
+            "valueFormat": {
+                "name": "value",
+                "type": "decimal",
+                "prefix": true,
+                "pattern": "#,###.#"
+            },
+            "labelFormat": {
+                "name": "label",
+                "type": "decimal",
+                "prefix": true,
+                "pattern": "#,###.#"
+            },
+            "datePeriodPatterns": [
+                {
+                    "period": "ss",
+                    "pattern": "HH:mm:ss"
+                },
+                {
+                    "period": "mm",
+                    "pattern": "HH:mm"
+                },
+                {
+                    "period": "hh",
+                    "pattern": "HH:mm"
+                },
+                {
+                    "period": "DD",
+                    "pattern": "MMM d"
+                },
+                {
+                    "period": "MM",
+                    "pattern": "MMM"
+                },
+                {
+                    "period": "YYYY",
+                    "pattern": "yyyy"
+                }
+            ],
+            "chartScrollbar": {
+                "enabled": true,
+                "dragIcon": "dragIconRoundSmall",
+                "dragIconHeight": 20,
+                "dragIconWidth": 20,
+                "scrollbarHeight": 15
+            },
+            "categoryAxis": {
+                "title": "Time",
+                "titleRotation": 0,
+                "gridPosition": "start",
+                "gridThickness": 1,
+                "gridAlpha": 0.15,
+                "axisThickness": 1,
+                "axisAlpha": 0.5,
+                "labelsEnabled": true,
+                "parseDates": true,
+                "minPeriod": "mm"
+            },
+            "valueAxis": {
+                "title": "Average Draw Time",
+                "titleRotation": 270,
+                "gridThickness": 1,
+                "gridAlpha": 0.15,
+                "axisThickness": 1,
+                "axisAlpha": 0.5,
+                "labelsEnabled": true,
+                "stackType": "none",
+                "integersOnly": false,
+                "logarithmic": false
+            },
+            "legend": {
+                "enabled": false,
+                "position": "bottom",
+                "markerSize": 15,
+                "markerType": "circle",
+                "align": "center",
+                "labelWidth": 100,
+                "valueWidth": 0
+            },
+            "graphs": [
+                {
+                    "valueField": "value",
+                    "lineColor": "#70a800",
+                    "lineColorField": "_lineColor_",
+                    "fillColorsField": "_fillColor_",
+                    "type": "column",
+                    "fillAlphas": 1,
+                    "lineAlpha": 1,
+                    "lineThickness": 1,
+                    "bullet": "none",
+                    "bulletAlpha": 1,
+                    "bulletBorderAlpha": 0,
+                    "bulletBorderThickness": 2,
+                    "showBalloon": true,
+                    "bulletSize": 8
+                }
+            ],
+            "guides": [],
+            "splitBy": {
+                "defaultColor": "#d6d6d6",
+                "seriesProperties": []
+            },
+            "rotate": false,
+            "commonGraphProperties": {
+                "lineColorField": "_lineColor_",
+                "fillColorsField": "_fillColor_",
+                "type": "smoothedLine",
+                "fillAlphas": 0,
+                "lineAlpha": 1,
+                "lineThickness": 1,
+                "bullet": "round",
+                "bulletAlpha": 1,
+                "bulletBorderAlpha": 0,
+                "bulletBorderThickness": 2,
+                "showBalloon": true,
+                "bulletSize": 4
+            },
+            "selectionMode": "multi",
+            "categoryType": "groupByValues",
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 0,
+                        "table": false
+                    },
+                    "filter": {
+                        "type": "filterGroup",
+                        "condition": "OR",
+                        "rules": [
+                            {
+                                "type": "filterGroup",
+                                "condition": "AND",
+                                "rules": [
+                                    {
+                                        "type": "filterRule",
+                                        "field": {
+                                            "name": "StatDateUTC",
+                                            "type": "esriFieldTypeDate"
+                                        },
+                                        "operator": "is_within_last",
+                                        "constraint": {
+                                            "type": "relativeDate",
+                                            "unit": "h",
+                                            "value": "12"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [
+                        "StatDateUTC"
+                    ],
+                    "orderByFields": [
+                        "StatDateUTC asc"
+                    ],
+                    "statisticDefinitions": [
+                        {
+                            "onStatisticField": "AvgLayerDrawTime",
+                            "outStatisticFieldName": "value",
+                            "statisticType": "sum"
+                        }
+                    ],
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": true,
+                    "name": "main"
+                }
+            ],
+            "id": "eb5691d1-f4f1-443d-8fb2-d77a8d47e7fb",
+            "name": "Average Draw Time Chart",
+            "caption": "",
+            "showLastUpdate": true,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": true
+        },
+        {
+            "type": "serialChartWidget",
+            "category": {
+                "labelOverrides": [],
+                "byCategoryColors": false,
+                "labelsPlacement": "default",
+                "labelRotation": 0,
+                "fieldName": "StatDateUTC",
+                "nullLabel": "Null",
+                "blankLabel": "Blank",
+                "defaultColor": "#d6d6d6",
+                "nullColor": "#d6d6d6",
+                "blankColor": "#d6d6d6"
+            },
+            "valueFormat": {
+                "name": "value",
+                "type": "decimal",
+                "prefix": true,
+                "pattern": "#,###.#"
+            },
+            "labelFormat": {
+                "name": "label",
+                "type": "decimal",
+                "prefix": true,
+                "pattern": "#,###.#"
+            },
+            "datePeriodPatterns": [
+                {
+                    "period": "ss",
+                    "pattern": "HH:mm:ss"
+                },
+                {
+                    "period": "mm",
+                    "pattern": "HH:mm"
+                },
+                {
+                    "period": "hh",
+                    "pattern": "HH:mm"
+                },
+                {
+                    "period": "DD",
+                    "pattern": "MMM d"
+                },
+                {
+                    "period": "MM",
+                    "pattern": "MMM"
+                },
+                {
+                    "period": "YYYY",
+                    "pattern": "yyyy"
+                }
+            ],
+            "chartScrollbar": {
+                "enabled": true,
+                "dragIcon": "dragIconRoundSmall",
+                "dragIconHeight": 20,
+                "dragIconWidth": 20,
+                "scrollbarHeight": 15
+            },
+            "categoryAxis": {
+                "title": "",
+                "titleRotation": 0,
+                "gridPosition": "start",
+                "gridThickness": 1,
+                "gridAlpha": 0.15,
+                "axisThickness": 1,
+                "axisAlpha": 0.5,
+                "labelsEnabled": true,
+                "parseDates": true,
+                "minPeriod": "mm"
+            },
+            "valueAxis": {
+                "title": "Errors",
+                "titleRotation": 270,
+                "gridThickness": 1,
+                "gridAlpha": 0.15,
+                "axisThickness": 1,
+                "axisAlpha": 0.5,
+                "labelsEnabled": true,
+                "stackType": "none",
+                "integersOnly": false,
+                "logarithmic": false
+            },
+            "legend": {
+                "enabled": false,
+                "position": "bottom",
+                "markerSize": 15,
+                "markerType": "circle",
+                "align": "center",
+                "labelWidth": 100,
+                "valueWidth": 0
+            },
+            "graphs": [
+                {
+                    "valueField": "value",
+                    "lineColor": "#ff0000",
+                    "lineColorField": "_lineColor_",
+                    "fillColorsField": "_fillColor_",
+                    "type": "column",
+                    "fillAlphas": 1,
+                    "lineAlpha": 1,
+                    "lineThickness": 1,
+                    "bullet": "none",
+                    "bulletAlpha": 1,
+                    "bulletBorderAlpha": 0,
+                    "bulletBorderThickness": 2,
+                    "showBalloon": true,
+                    "bulletSize": 8
+                }
+            ],
+            "guides": [],
+            "splitBy": {
+                "defaultColor": "#d6d6d6",
+                "seriesProperties": []
+            },
+            "rotate": false,
+            "commonGraphProperties": {
+                "lineColorField": "_lineColor_",
+                "fillColorsField": "_fillColor_",
+                "type": "column",
+                "fillAlphas": 1,
+                "lineAlpha": 1,
+                "lineThickness": 1,
+                "bullet": "none",
+                "bulletAlpha": 1,
+                "bulletBorderAlpha": 0,
+                "bulletBorderThickness": 2,
+                "showBalloon": true,
+                "bulletSize": 8
+            },
+            "selectionMode": "multi",
+            "categoryType": "groupByValues",
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 0,
+                        "table": false
+                    },
+                    "filter": {
+                        "type": "filterGroup",
+                        "condition": "OR",
+                        "rules": [
+                            {
+                                "type": "filterGroup",
+                                "condition": "AND",
+                                "rules": [
+                                    {
+                                        "type": "filterRule",
+                                        "field": {
+                                            "name": "StatDateUTC",
+                                            "type": "esriFieldTypeDate"
+                                        },
+                                        "operator": "is_within_last",
+                                        "constraint": {
+                                            "type": "relativeDate",
+                                            "unit": "h",
+                                            "value": "12"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [
+                        "StatDateUTC"
+                    ],
+                    "orderByFields": [
+                        "StatDateUTC asc"
+                    ],
+                    "statisticDefinitions": [
+                        {
+                            "onStatisticField": "Errors",
+                            "outStatisticFieldName": "value",
+                            "statisticType": "sum"
+                        }
+                    ],
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": true,
+                    "name": "main"
+                }
+            ],
+            "id": "027e473b-1dd0-44d1-abcb-fc8aa3cd2fbd",
+            "name": "Errors Chart",
+            "caption": "",
+            "showLastUpdate": true,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": true
+        },
+        {
+            "type": "indicatorWidget",
+            "defaultSettings": {
+                "textColor": "#70a800",
+                "caption": "<h3 style=\"text-align:center\"><span style=\"color:#70a800\">Average Draw Time</span></h3>\n",
+                "topSection": {
+                    "fontSize": 80,
+                    "textInfo": {}
+                },
+                "middleSection": {
+                    "fontSize": 160,
+                    "textInfo": {
+                        "text": "{element/value}"
+                    }
+                },
+                "bottomSection": {
+                    "fontSize": 80,
+                    "textInfo": {}
+                }
+            },
+            "comparison": "none",
+            "valueField": "AvgLayerDrawTime",
+            "valueFormat": {
+                "name": "value",
+                "type": "decimal",
+                "prefix": false
+            },
+            "percentageFormat": {
+                "name": "percentage",
+                "type": "decimal",
+                "prefix": false
+            },
+            "ratioFormat": {
+                "name": "ratio",
+                "type": "decimal",
+                "prefix": false
+            },
+            "valueType": "feature",
+            "noValueVerticalAlignment": "middle",
+            "showCaptionWhenNoValue": true,
+            "showDescriptionWhenNoValue": true,
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 0,
+                        "table": false
+                    },
+                    "filter": {
+                        "type": "filterGroup",
+                        "condition": "OR",
+                        "rules": [
+                            {
+                                "type": "filterGroup",
+                                "condition": "AND",
+                                "rules": [
+                                    {
+                                        "type": "filterRule",
+                                        "field": {
+                                            "name": "StatDateUTC",
+                                            "type": "esriFieldTypeDate"
+                                        },
+                                        "operator": "is_within_last",
+                                        "constraint": {
+                                            "type": "relativeDate",
+                                            "unit": "m",
+                                            "value": "7"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [],
+                    "orderByFields": [
+                        "StatDateUTC desc"
+                    ],
+                    "statisticDefinitions": [],
+                    "maxFeatures": 1,
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": false,
+                    "name": "main"
+                }
+            ],
+            "id": "9a40c0d0-2681-4b15-b73b-04e3ce8f6c5c",
+            "name": "Average Draw Time Indicator",
+            "showLastUpdate": false,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": false
+        },
+        {
+            "type": "listWidget",
+            "iconType": "none",
+            "text": "<p><span style=\"font-size:12px\">{LogDateUTC} - {Message}</span></p>\n",
+            "selectionMode": "single",
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 2,
+                        "table": false
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [],
+                    "orderByFields": [
+                        "LogDateUTC desc"
+                    ],
+                    "statisticDefinitions": [],
+                    "maxFeatures": 1000,
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": false,
+                    "name": "main"
+                }
+            ],
+            "id": "565a36a0-c2f1-45da-a556-bf0fc64e58bb",
+            "name": "List (1)",
+            "caption": "<h2 style=\"text-align:center\"><span style=\"color:#ffaa00\">Warnings</span></h2>\n",
+            "showLastUpdate": true,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": true
+        },
+        {
+            "type": "indicatorWidget",
+            "defaultSettings": {
+                "textColor": "#ffaa00",
+                "caption": "<h3 style=\"text-align:center\">Warnings</h3>\n",
+                "topSection": {
+                    "fontSize": 80,
+                    "textInfo": {}
+                },
+                "middleSection": {
+                    "fontSize": 160,
+                    "textInfo": {
+                        "text": "{element/value}"
+                    }
+                },
+                "bottomSection": {
+                    "fontSize": 80,
+                    "textInfo": {}
+                }
+            },
+            "comparison": "none",
+            "valueField": "Warnings",
+            "valueFormat": {
+                "name": "value",
+                "type": "decimal",
+                "prefix": false
+            },
+            "percentageFormat": {
+                "name": "percentage",
+                "type": "decimal",
+                "prefix": false
+            },
+            "ratioFormat": {
+                "name": "ratio",
+                "type": "decimal",
+                "prefix": false
+            },
+            "valueType": "feature",
+            "noValueVerticalAlignment": "middle",
+            "showCaptionWhenNoValue": true,
+            "showDescriptionWhenNoValue": true,
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 0,
+                        "table": false
+                    },
+                    "filter": {
+                        "type": "filterGroup",
+                        "condition": "OR",
+                        "rules": [
+                            {
+                                "type": "filterGroup",
+                                "condition": "AND",
+                                "rules": [
+                                    {
+                                        "type": "filterRule",
+                                        "field": {
+                                            "name": "StatDateUTC",
+                                            "type": "esriFieldTypeDate"
+                                        },
+                                        "operator": "is_within_last",
+                                        "constraint": {
+                                            "type": "relativeDate",
+                                            "unit": "m",
+                                            "value": "7"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [],
+                    "orderByFields": [
+                        "StatDateUTC desc"
+                    ],
+                    "statisticDefinitions": [],
+                    "maxFeatures": 1,
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": false,
+                    "name": "main"
+                }
+            ],
+            "id": "baea9739-f82b-456e-8b5a-c4dcc570ff99",
+            "name": "Warnings Indicator",
+            "showLastUpdate": false,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": true
+        },
+        {
+            "type": "serialChartWidget",
+            "category": {
+                "labelOverrides": [],
+                "byCategoryColors": false,
+                "labelsPlacement": "default",
+                "labelRotation": 0,
+                "fieldName": "StatDateUTC",
+                "nullLabel": "Null",
+                "blankLabel": "Blank",
+                "defaultColor": "#d6d6d6",
+                "nullColor": "#d6d6d6",
+                "blankColor": "#d6d6d6"
+            },
+            "valueFormat": {
+                "name": "value",
+                "type": "decimal",
+                "prefix": true,
+                "pattern": "#,###.#"
+            },
+            "labelFormat": {
+                "name": "label",
+                "type": "decimal",
+                "prefix": true,
+                "pattern": "#,###.#"
+            },
+            "datePeriodPatterns": [
+                {
+                    "period": "ss",
+                    "pattern": "HH:mm:ss"
+                },
+                {
+                    "period": "mm",
+                    "pattern": "HH:mm"
+                },
+                {
+                    "period": "hh",
+                    "pattern": "HH:mm"
+                },
+                {
+                    "period": "DD",
+                    "pattern": "MMM d"
+                },
+                {
+                    "period": "MM",
+                    "pattern": "MMM"
+                },
+                {
+                    "period": "YYYY",
+                    "pattern": "yyyy"
+                }
+            ],
+            "chartScrollbar": {
+                "enabled": true,
+                "dragIcon": "dragIconRoundSmall",
+                "dragIconHeight": 20,
+                "dragIconWidth": 20,
+                "scrollbarHeight": 15
+            },
+            "categoryAxis": {
+                "title": "",
+                "titleRotation": 0,
+                "gridPosition": "start",
+                "gridThickness": 1,
+                "gridAlpha": 0.15,
+                "axisThickness": 1,
+                "axisAlpha": 0.5,
+                "labelsEnabled": true,
+                "parseDates": true,
+                "minPeriod": "mm"
+            },
+            "valueAxis": {
+                "title": "Warnings",
+                "titleRotation": 270,
+                "gridThickness": 1,
+                "gridAlpha": 0.15,
+                "axisThickness": 1,
+                "axisAlpha": 0.5,
+                "labelsEnabled": true,
+                "stackType": "none",
+                "integersOnly": false,
+                "logarithmic": false
+            },
+            "legend": {
+                "enabled": false,
+                "position": "bottom",
+                "markerSize": 15,
+                "markerType": "circle",
+                "align": "center",
+                "labelWidth": 100,
+                "valueWidth": 0
+            },
+            "graphs": [
+                {
+                    "valueField": "value",
+                    "lineColor": "#ffaa00",
+                    "lineColorField": "_lineColor_",
+                    "fillColorsField": "_fillColor_",
+                    "type": "column",
+                    "fillAlphas": 1,
+                    "lineAlpha": 1,
+                    "lineThickness": 1,
+                    "bullet": "none",
+                    "bulletAlpha": 1,
+                    "bulletBorderAlpha": 0,
+                    "bulletBorderThickness": 2,
+                    "showBalloon": true,
+                    "bulletSize": 8
+                }
+            ],
+            "guides": [],
+            "splitBy": {
+                "defaultColor": "#d6d6d6",
+                "seriesProperties": []
+            },
+            "rotate": false,
+            "commonGraphProperties": {
+                "lineColorField": "_lineColor_",
+                "fillColorsField": "_fillColor_",
+                "type": "column",
+                "fillAlphas": 1,
+                "lineAlpha": 1,
+                "lineThickness": 1,
+                "bullet": "none",
+                "bulletAlpha": 1,
+                "bulletBorderAlpha": 0,
+                "bulletBorderThickness": 2,
+                "showBalloon": true,
+                "bulletSize": 8
+            },
+            "selectionMode": "multi",
+            "categoryType": "groupByValues",
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 0,
+                        "table": false
+                    },
+                    "filter": {
+                        "type": "filterGroup",
+                        "condition": "OR",
+                        "rules": [
+                            {
+                                "type": "filterGroup",
+                                "condition": "AND",
+                                "rules": [
+                                    {
+                                        "type": "filterRule",
+                                        "field": {
+                                            "name": "StatDateUTC",
+                                            "type": "esriFieldTypeDate"
+                                        },
+                                        "operator": "is_within_last",
+                                        "constraint": {
+                                            "type": "relativeDate",
+                                            "unit": "h",
+                                            "value": "12"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [
+                        "StatDateUTC"
+                    ],
+                    "orderByFields": [
+                        "StatDateUTC asc"
+                    ],
+                    "statisticDefinitions": [
+                        {
+                            "onStatisticField": "Warnings",
+                            "outStatisticFieldName": "value",
+                            "statisticType": "sum"
+                        }
+                    ],
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": true,
+                    "name": "main"
+                }
+            ],
+            "id": "8250a477-b9a3-45bd-a2cf-5194d5351820",
+            "name": "Serial Chart (1)",
+            "caption": "",
+            "showLastUpdate": true,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": true
+        },
+        {
+            "type": "listWidget",
+            "iconType": "none",
+            "text": "<p><span style=\"font-size:12px\">{LogDateUTC} - {Message}</span></p>\n",
+            "selectionMode": "single",
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 1,
+                        "table": false
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [],
+                    "orderByFields": [
+                        "LogDateUTC desc"
+                    ],
+                    "statisticDefinitions": [],
+                    "maxFeatures": 1000,
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": false,
+                    "name": "main"
+                }
+            ],
+            "id": "4150faad-432a-4a43-b63f-36691d68ab5a",
+            "name": "Error list",
+            "caption": "<h2 style=\"text-align:center\"><span style=\"color:#ff0000\">Errors</span></h2>\n",
+            "showLastUpdate": true,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": true
+        },
+        {
+            "type": "listWidget",
+            "iconType": "none",
+            "text": "<p>{ShortTimePeriod} - {Service}</p>\n",
+            "selectionMode": "single",
+            "textColor": "#858585",
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 3,
+                        "table": false
+                    },
+                    "filter": {
+                        "type": "filterGroup",
+                        "condition": "OR",
+                        "rules": [
+                            {
+                                "type": "filterGroup",
+                                "condition": "AND",
+                                "rules": [
+                                    {
+                                        "type": "filterRule",
+                                        "field": {
+                                            "name": "StatDateUTC",
+                                            "type": "esriFieldTypeDate"
+                                        },
+                                        "operator": "is_within_last",
+                                        "constraint": {
+                                            "type": "relativeDate",
+                                            "unit": "m",
+                                            "value": "5"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [],
+                    "orderByFields": [
+                        "StatDateUTC desc",
+                        "ShortTimePeriod desc"
+                    ],
+                    "statisticDefinitions": [],
+                    "maxFeatures": 10,
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": false,
+                    "name": "main"
+                }
+            ],
+            "id": "f6ac47fb-5cc7-49be-923a-d7e1de22d01a",
+            "name": "List (2)",
+            "caption": "<h3 style=\"text-align:center\">Top Services Requested</h3>\n",
+            "showLastUpdate": true,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": true
+        },
+        {
+            "type": "listWidget",
+            "iconType": "none",
+            "text": "<p><span style=\"color:#858585\">{ShortTimePeriod} - {Layer}</span></p>\n",
+            "selectionMode": "single",
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 4,
+                        "table": false
+                    },
+                    "filter": {
+                        "type": "filterGroup",
+                        "condition": "OR",
+                        "rules": [
+                            {
+                                "type": "filterGroup",
+                                "condition": "AND",
+                                "rules": [
+                                    {
+                                        "type": "filterRule",
+                                        "field": {
+                                            "name": "StatDateUTC",
+                                            "type": "esriFieldTypeDate"
+                                        },
+                                        "operator": "is_within_last",
+                                        "constraint": {
+                                            "type": "relativeDate",
+                                            "unit": "m",
+                                            "value": "5"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [],
+                    "orderByFields": [
+                        "StatDateUTC desc",
+                        "ShortTimePeriod desc"
+                    ],
+                    "statisticDefinitions": [],
+                    "maxFeatures": 10,
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": false,
+                    "name": "main"
+                }
+            ],
+            "id": "565aa925-e070-48b5-8987-9aa013787375",
+            "name": "List (3)",
+            "caption": "<h3 style=\"text-align:center\"><span style=\"color:#00a9e6\">Top Layers Drawn</span></h3>\n",
+            "showLastUpdate": true,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": true
+        },
+        {
+            "type": "listWidget",
+            "iconType": "none",
+            "text": "<p>{ShortTimePeriod} - {Layer}</p>\n",
+            "selectionMode": "single",
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 5,
+                        "table": false
+                    },
+                    "filter": {
+                        "type": "filterGroup",
+                        "condition": "OR",
+                        "rules": [
+                            {
+                                "type": "filterGroup",
+                                "condition": "AND",
+                                "rules": [
+                                    {
+                                        "type": "filterRule",
+                                        "field": {
+                                            "name": "StatDateUTC",
+                                            "type": "esriFieldTypeDate"
+                                        },
+                                        "operator": "is_within_last",
+                                        "constraint": {
+                                            "type": "relativeDate",
+                                            "unit": "m",
+                                            "value": "5"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [],
+                    "orderByFields": [
+                        "StatDateUTC desc",
+                        "ShortTimePeriod desc"
+                    ],
+                    "statisticDefinitions": [],
+                    "maxFeatures": 10,
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": false,
+                    "name": "main"
+                }
+            ],
+            "id": "bc773d84-a81a-4786-9951-b67fe0f89988",
+            "name": "List (4)",
+            "caption": "<h3 style=\"text-align:center\"><span style=\"color:#70a800\">Longest Average&nbsp;Time to Draw</span></h3>\n",
+            "showLastUpdate": true,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": true
+        },
+        {
+            "type": "indicatorWidget",
+            "defaultSettings": {
+                "textColor": "#38a800",
+                "caption": "<h3 style=\"text-align:center\">Services Up</h3>\n",
+                "topSection": {
+                    "fontSize": 80,
+                    "textInfo": {}
+                },
+                "middleSection": {
+                    "fontSize": 160,
+                    "textInfo": {
+                        "text": "{element/value}"
+                    }
+                },
+                "bottomSection": {
+                    "fontSize": 80,
+                    "textInfo": {}
+                }
+            },
+            "comparison": "none",
+            "valueField": "ServicesUp",
+            "valueFormat": {
+                "name": "value",
+                "type": "decimal",
+                "prefix": false
+            },
+            "percentageFormat": {
+                "name": "percentage",
+                "type": "decimal",
+                "prefix": false
+            },
+            "ratioFormat": {
+                "name": "ratio",
+                "type": "decimal",
+                "prefix": false
+            },
+            "valueType": "feature",
+            "noValueVerticalAlignment": "middle",
+            "showCaptionWhenNoValue": true,
+            "showDescriptionWhenNoValue": true,
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 7,
+                        "table": false
+                    },
+                    "filter": {
+                        "type": "filterGroup",
+                        "condition": "OR",
+                        "rules": [
+                            {
+                                "type": "filterGroup",
+                                "condition": "AND",
+                                "rules": [
+                                    {
+                                        "type": "filterRule",
+                                        "field": {
+                                            "name": "StatDateUTC",
+                                            "type": "esriFieldTypeDate"
+                                        },
+                                        "operator": "is_within_last",
+                                        "constraint": {
+                                            "type": "relativeDate",
+                                            "unit": "m",
+                                            "value": "7"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [],
+                    "orderByFields": [],
+                    "statisticDefinitions": [],
+                    "maxFeatures": 1,
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": false,
+                    "name": "main"
+                }
+            ],
+            "id": "955ba325-7b36-4803-ab1a-2382c76407c0",
+            "name": "Indicator (1)",
+            "showLastUpdate": true,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": true
+        },
+        {
+            "type": "indicatorWidget",
+            "defaultSettings": {
+                "textColor": "#ff0000",
+                "caption": "<h3 style=\"text-align:center\"><span style=\"color:#ff0000\">Services Down</span></h3>\n",
+                "topSection": {
+                    "fontSize": 80,
+                    "textInfo": {}
+                },
+                "middleSection": {
+                    "fontSize": 160,
+                    "textInfo": {
+                        "text": "{element/value}"
+                    }
+                },
+                "bottomSection": {
+                    "fontSize": 80,
+                    "textInfo": {}
+                }
+            },
+            "comparison": "none",
+            "valueField": "ServicesDown",
+            "valueFormat": {
+                "name": "value",
+                "type": "decimal",
+                "prefix": false
+            },
+            "percentageFormat": {
+                "name": "percentage",
+                "type": "decimal",
+                "prefix": false
+            },
+            "ratioFormat": {
+                "name": "ratio",
+                "type": "decimal",
+                "prefix": false
+            },
+            "valueType": "feature",
+            "noValueVerticalAlignment": "middle",
+            "showCaptionWhenNoValue": true,
+            "showDescriptionWhenNoValue": true,
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 7,
+                        "table": false
+                    },
+                    "filter": {
+                        "type": "filterGroup",
+                        "condition": "OR",
+                        "rules": [
+                            {
+                                "type": "filterGroup",
+                                "condition": "AND",
+                                "rules": [
+                                    {
+                                        "type": "filterRule",
+                                        "field": {
+                                            "name": "StatDateUTC",
+                                            "type": "esriFieldTypeDate"
+                                        },
+                                        "operator": "is_within_last",
+                                        "constraint": {
+                                            "type": "relativeDate",
+                                            "unit": "m",
+                                            "value": "7"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [],
+                    "orderByFields": [],
+                    "statisticDefinitions": [],
+                    "maxFeatures": 1,
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": false,
+                    "name": "main"
+                }
+            ],
+            "id": "1b21792c-99e3-412c-bfcb-176e5ed728bb",
+            "name": "Indicator (2)",
+            "showLastUpdate": true,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": true
+        },
+        {
+            "type": "listWidget",
+            "iconType": "none",
+            "text": "<p>{Service}</p>\n",
+            "selectionMode": "single",
+            "textColor": "#ff0000",
+            "datasets": [
+                {
+                    "type": "serviceDataset",
+                    "dataSource": {
+                        "type": "featureServiceDataSource",
+                        "itemId": "8585f8f75c074a5bb293f041fd9220ef",
+                        "layerId": 8,
+                        "table": false
+                    },
+                    "filter": {
+                        "type": "filterGroup",
+                        "condition": "OR",
+                        "rules": [
+                            {
+                                "type": "filterGroup",
+                                "condition": "AND",
+                                "rules": [
+                                    {
+                                        "type": "filterRule",
+                                        "field": {
+                                            "name": "StatDateUTC",
+                                            "type": "esriFieldTypeDate"
+                                        },
+                                        "operator": "is_within_last",
+                                        "constraint": {
+                                            "type": "relativeDate",
+                                            "unit": "m",
+                                            "value": "7"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "outFields": [
+                        "*"
+                    ],
+                    "groupByFields": [],
+                    "orderByFields": [
+                        "Service asc"
+                    ],
+                    "statisticDefinitions": [],
+                    "maxFeatures": 100,
+                    "querySpatialRelationship": "esriSpatialRelIntersects",
+                    "returnGeometry": false,
+                    "clientSideStatistics": false,
+                    "name": "main"
+                }
+            ],
+            "id": "2a32954d-975b-4ad4-9304-8b5e45c2029f",
+            "name": "List (5)",
+            "caption": "<h3 style=\"text-align:center\">List of Services Down</h3>\n",
+            "showLastUpdate": true,
+            "noDataVerticalAlignment": "middle",
+            "showCaptionWhenNoData": true,
+            "showDescriptionWhenNoData": true
+        }
+    ],
+    "settings": {
+        "maxPaginationRecords": 50000,
+        "allowElementResizing": false
+    },
+    "mapOverrides": {
+        "trackedFeatureRadius": 60
+    },
+    "theme": "dark",
+    "themeOverrides": {},
+    "numberPrefixOverrides": [
+        {
+            "key": "yotta",
+            "symbol": "Y",
+            "enabled": true
+        },
+        {
+            "key": "zeta",
+            "symbol": "Z",
+            "enabled": true
+        },
+        {
+            "key": "exa",
+            "symbol": "E",
+            "enabled": true
+        },
+        {
+            "key": "peta",
+            "symbol": "P",
+            "enabled": true
+        },
+        {
+            "key": "tera",
+            "symbol": "T",
+            "enabled": true
+        },
+        {
+            "key": "giga",
+            "symbol": "G",
+            "enabled": true
+        },
+        {
+            "key": "mega",
+            "symbol": "M",
+            "enabled": true
+        },
+        {
+            "key": "kilo",
+            "symbol": "k",
+            "enabled": true
+        },
+        {
+            "key": "base",
+            "symbol": "",
+            "enabled": true
+        },
+        {
+            "key": "deci",
+            "symbol": "d",
+            "enabled": false
+        },
+        {
+            "key": "centi",
+            "symbol": "c",
+            "enabled": false
+        },
+        {
+            "key": "milli",
+            "symbol": "m",
+            "enabled": false
+        },
+        {
+            "key": "micro",
+            "symbol": "µ",
+            "enabled": false
+        },
+        {
+            "key": "nano",
+            "symbol": "n",
+            "enabled": false
+        }
+    ],
+    "layout": {
+        "rootElement": {
+            "type": "stackLayoutElement",
+            "orientation": "col",
+            "elements": [
+                {
+                    "type": "stackLayoutElement",
+                    "orientation": "row",
+                    "elements": [
+                        {
+                            "type": "itemLayoutElement",
+                            "id": "887378a3-22e3-48f4-af11-ca81b5ee67ab",
+                            "width": 1,
+                            "height": 0.20331493706457407
+                        },
+                        {
+                            "type": "itemLayoutElement",
+                            "id": "5b899b08-5c22-4379-86f8-3f40990b6c2d",
+                            "width": 1,
+                            "height": 0.21315860531647174
+                        },
+                        {
+                            "type": "itemLayoutElement",
+                            "id": "9a40c0d0-2681-4b15-b73b-04e3ce8f6c5c",
+                            "width": 1,
+                            "height": 0.2213999130448404
+                        },
+                        {
+                            "type": "itemLayoutElement",
+                            "id": "baea9739-f82b-456e-8b5a-c4dcc570ff99",
+                            "width": 1,
+                            "height": 0.1894833617082509
+                        },
+                        {
+                            "type": "itemLayoutElement",
+                            "id": "59a29359-50a2-4d16-a782-f1be695ef602",
+                            "width": 1,
+                            "height": 0.17264318286586294
+                        }
+                    ],
+                    "width": 0.12983073437798148,
+                    "height": 1
+                },
+                {
+                    "type": "stackLayoutElement",
+                    "orientation": "row",
+                    "elements": [
+                        {
+                            "type": "itemLayoutElement",
+                            "id": "a9d67536-4662-4c08-af58-428dc27d0cb7",
+                            "width": 1,
+                            "height": 0.2014114772432491
+                        },
+                        {
+                            "type": "itemLayoutElement",
+                            "id": "66308114-0389-4bbc-80cd-2e8f0584c31f",
+                            "width": 1,
+                            "height": 0.21827105648980644
+                        },
+                        {
+                            "type": "itemLayoutElement",
+                            "id": "eb5691d1-f4f1-443d-8fb2-d77a8d47e7fb",
+                            "width": 1,
+                            "height": 0.218891613840661
+                        },
+                        {
+                            "type": "itemLayoutElement",
+                            "id": "8250a477-b9a3-45bd-a2cf-5194d5351820",
+                            "width": 1,
+                            "height": 0.18623521623217448
+                        },
+                        {
+                            "type": "itemLayoutElement",
+                            "id": "027e473b-1dd0-44d1-abcb-fc8aa3cd2fbd",
+                            "width": 1,
+                            "height": 0.17519063619410902
+                        }
+                    ],
+                    "width": 0.314833354455935,
+                    "height": 1
+                },
+                {
+                    "type": "itemLayoutElement",
+                    "id": "565a36a0-c2f1-45da-a556-bf0fc64e58bb",
+                    "width": 0.16201612458731726,
+                    "height": 1
+                },
+                {
+                    "type": "itemLayoutElement",
+                    "id": "4150faad-432a-4a43-b63f-36691d68ab5a",
+                    "width": 0.16010279995863852,
+                    "height": 1
+                },
+                {
+                    "type": "stackLayoutElement",
+                    "orientation": "row",
+                    "elements": [
+                        {
+                            "type": "itemLayoutElement",
+                            "id": "f6ac47fb-5cc7-49be-923a-d7e1de22d01a",
+                            "width": 1,
+                            "height": 0.3736737103902378
+                        },
+                        {
+                            "type": "itemLayoutElement",
+                            "id": "565aa925-e070-48b5-8987-9aa013787375",
+                            "width": 1,
+                            "height": 0.29122457013007924
+                        },
+                        {
+                            "type": "itemLayoutElement",
+                            "id": "bc773d84-a81a-4786-9951-b67fe0f89988",
+                            "width": 1,
+                            "height": 0.3351017194796829
+                        }
+                    ],
+                    "width": 0.1443862710878418,
+                    "height": 1
+                },
+                {
+                    "type": "stackLayoutElement",
+                    "orientation": "row",
+                    "elements": [
+                        {
+                            "type": "itemLayoutElement",
+                            "id": "955ba325-7b36-4803-ab1a-2382c76407c0",
+                            "width": 1,
+                            "height": 0.2282425879869026
+                        },
+                        {
+                            "type": "itemLayoutElement",
+                            "id": "1b21792c-99e3-412c-bfcb-176e5ed728bb",
+                            "width": 1,
+                            "height": 0.23854873051942244
+                        },
+                        {
+                            "type": "itemLayoutElement",
+                            "id": "2a32954d-975b-4ad4-9304-8b5e45c2029f",
+                            "width": 1,
+                            "height": 0.533208681493675
+                        }
+                    ],
+                    "width": 0.08883071553228619,
+                    "height": 1
+                }
+            ],
+            "width": 1,
+            "height": 1
+        }
+    }
+}
